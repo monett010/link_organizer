@@ -1,0 +1,39 @@
+form#add_form {
+    width: 100%;
+    height: 50px;
+    /* background-color: #022061; */
+
+}
+
+input[type="text"] {
+    width: 75%;
+    height: 2rem;
+
+}
+
+#add_form button {
+    height: 2.5rem;
+    width: 4rem;
+
+}
+
+section#bookmark_list {
+    width: 100%;
+}
+
+div.bookmark {
+    display: flex;
+    height: 5rem;
+    width: 100%;
+    border: 1px solid black;
+}
+
+#thumbnail {
+    height: 5rem;
+    width: 25%;
+}
+
+#main_menu {
+    height: 50px;
+    width: 100%;
+}

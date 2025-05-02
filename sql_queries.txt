@@ -1,15 +1,45 @@
 - Get all bookmarks
 - Get all(unarchived) bookmarks
-- Get all tags
 - Get archived bookmarks
+- Get all tags
 
-- Add bookmarks
+- Add bookmark
 - Add tag to bookmark
+- Add tag
 
 
 - Remove bookmark
+- Remove tag from bookmark
+- Remove tag
 
 - Search bookmarks by title
 
 
 - Export links
+
+====
+API
+
+RETRIEVE
+/bookmarks/[id] - gets one bookmark by id
+/get/bookmarks - gets all bookmarks
+/get/bookmarks/[status=archived] - gets archived bookmarks
+/get/bookmarks/[status=unarchived] - gets unarchived bookmarks
+/tags - gets all tags
+/tags/[id] - gets one tag by id
+
+
+ADD
+/bookmarks/ - adds a bookmark
+/tags/tagname="tag_name" - adds a tag
+
+
+UPDATE
+/bookmark/action="archive" - archives a bookmark
+/bookmark/action="unarchive" - unarchives a bookmark
+/tags/[bookmark_id] - adds a tag to a bookmark
+
+
+Remove
+/bookmarks/[id]
+/tags/[tag_id]

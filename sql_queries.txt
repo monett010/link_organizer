@@ -1,0 +1,15 @@
+- Get all bookmarks
+- Get all(unarchived) bookmarks
+- Get all tags
+- Get archived bookmarks
+
+- Add bookmarks
+- Add tag to bookmark
+
+
+- Remove bookmark
+
+- Search bookmarks by title
+
+
+- Export links

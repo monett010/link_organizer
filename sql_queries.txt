@@ -13,15 +13,22 @@ SELECT * FROM Bookmarks WHERE archived='Y';
 SELECT * FROM Tags;
 
 - Add bookmark
+INSERT INTO Bookmarks ('bookmark_title','bookmark_url','date_added',) VALUES ('','','');
+
 - Add tag to bookmark
-INSERT INTO Bookmarks
+INSERT INTO Bookmark_tags (boookmark_id, tag_id) VALUES ('','');
 
 - Add tag
-
+INSERT INTO Tags ('tag_name') VALUES ('rip private equity');
 
 - Remove bookmark
+DELETE FROM Bookmarks WHERE bookmark_id = ?;
+
 - Remove tag from bookmark
+DELETE FROM Bookmark_tags WHERE tag_id = ? AND bookmark_id = ?;
+
 - Remove tag
+DELETE FROM Tags WHERE tag_id = ?;
 
 - Search bookmarks by title
 

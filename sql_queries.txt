@@ -13,7 +13,7 @@ SELECT * FROM Bookmarks WHERE archived='Y';
 SELECT * FROM Tags;
 
 - Add bookmark
-INSERT INTO Bookmarks ('bookmark_title','bookmark_url','date_added',) VALUES ('','','');
+INSERT INTO Bookmarks ('bookmark_title','bookmark_url','date_added') VALUES ('','','');
 
 - Add tag to bookmark
 INSERT INTO Bookmark_tags (boookmark_id, tag_id) VALUES ('','');

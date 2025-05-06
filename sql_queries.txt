@@ -1,10 +1,21 @@
 - Get all bookmarks
+SELECT * FROM Bookmarks;
+
 - Get all(unarchived) bookmarks
+SELECT * FROM Bookmarks WHERE archived='N';
+
+
 - Get archived bookmarks
+SELECT * FROM Bookmarks WHERE archived='Y';
+
+
 - Get all tags
+SELECT * FROM Tags;
 
 - Add bookmark
 - Add tag to bookmark
+INSERT INTO Bookmarks
+
 - Add tag
 
 
@@ -40,6 +51,6 @@ UPDATE
 /tags/[bookmark_id] - adds a tag to a bookmark
 
 
-Remove
+DELETE
 /bookmarks/[id]
 /tags/[tag_id]

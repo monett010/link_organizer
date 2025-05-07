@@ -4,15 +4,6 @@ class Connection ():
 
     def __init__(self):
         self.db = "Bookmarks.db"
-
-    # def sql_fetch (self, sql_statement):
-    #     connection_ = sqlite3.connect(self.db)
-    #     cursor = connection_.cursor()
-    #     rows_ = cursor.execute(sql_statement)
-    #     rows = rows_.fetchall()
-    #     cursor.close()
-    #     connection_.close()
-    #     return rows
     
     def sql_fetch (self, sql_statement, id=0):
         connection_ = sqlite3.connect(self.db)

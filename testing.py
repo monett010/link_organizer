@@ -3,7 +3,8 @@ from Controller import Connection, SQLStatements
 s = SQLStatements()
 
 # TESTING GET BOOKMARKS
-print (s.getBookmarks("all"))
+print (s.getBookmarks("u"))
+# print(s.getBookmark(1))
 
 # TESTING GET TAGS
 # print (s.getTags())

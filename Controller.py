@@ -5,10 +5,24 @@ class Connection ():
     def __init__(self):
         self.db = "Bookmarks.db"
 
-    def sql_fetch (self, sql_statement):
+    # def sql_fetch (self, sql_statement):
+    #     connection_ = sqlite3.connect(self.db)
+    #     cursor = connection_.cursor()
+    #     rows_ = cursor.execute(sql_statement)
+    #     rows = rows_.fetchall()
+    #     cursor.close()
+    #     connection_.close()
+    #     return rows
+    
+    def sql_fetch (self, sql_statement, id=0):
         connection_ = sqlite3.connect(self.db)
         cursor = connection_.cursor()
-        rows_ = cursor.execute(sql_statement)
+
+        if (id != 0):
+            rows_ = cursor.execute(sql_statement, id)
+        else:
+            rows_ = cursor.execute(sql_statement)
+
         rows = rows_.fetchall()
         cursor.close()
         connection_.close()
@@ -27,6 +41,11 @@ class Connection ():
 class SQLStatements (Connection) :
 
     # GET
+    def getBookmark (self, bookmark_id:int) -> dict:
+        sql_statement = "SELECT * FROM Bookmarks WHERE bookmark_id=?;"
+        bookmark = Connection.sql_fetch(self, sql_statement, (bookmark_id,))
+        return bookmark
+
     def getBookmarks (self, opt:str) -> dict:
         match opt:
             case "all":
@@ -45,6 +64,11 @@ class SQLStatements (Connection) :
             bookmark = dict(zip(keys, values))
             bookmarks[b[0]] = bookmark
         return bookmarks
+    
+    def getTag (self, tag_id:int) -> dict:
+        sql_statement = "SELECT * FROM Tags WHERE tag_id=?;"
+        tag = Connection.sql_fetch(self, sql_statement, (tag_id,))
+        return tag
 
     def getTags (self) -> dict:
         sql_statement = "SELECT * FROM Tags;"

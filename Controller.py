@@ -70,4 +70,10 @@ class SQLStatements (Connection) :
         sql_statement = "DELETE FROM Bookmarks WHERE bookmark_id = ?;"
         Connection.sql_delete(self, sql_statement, (bookmark_id,))
 
+    def removeTag (self, tag_id) -> None:
+        sql_statement = "DELETE FROM Tags WHERE tag_id = ?;"
+        Connection.sql_delete(self, sql_statement, (tag_id,))
     
+    def removeTagFromBookmark (self, tag_id, bookmark_id) -> None:
+        sql_statement = "DELETE FROM Bookmark_tags WHERE tag_id = ? AND bookmark_id = ?;"
+        Connection.sql_delete(self,sql_statement, (tag_id, bookmark_id,))

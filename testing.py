@@ -22,3 +22,16 @@ s = SQLStatements()
 
 # TESTING ADDING TAG TO BOOKMARK
 # s.addTagToBookmark ("6","3")
+
+# TESTING REMOVE BOOKMARK
+# s.removeBookmark(7)
+
+# TESTING REMOVE TAG FROM BOOKMARK
+# s.removeTagFromBookmark(3, 1)
+
+# TESTING REMOVE TAG
+# s.removeTagFromBookmark(2, 4)
+# s.removeTag(2)
+
+# s.addTag("rip private equity")
+# s.addTagToBookmark(4, 5)

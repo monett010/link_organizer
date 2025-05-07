@@ -63,9 +63,14 @@ class SQLStatements (Connection) :
         sql_statement = "INSERT INTO Tags (tag_name) VALUES (?);"
         Connection.sql_insert(self, sql_statement, (tag_name,))
 
-    def addTagToBookmark (self, bookmark_id:int, tag_id:int) -> None:
+    # def addTagToBookmark (self, bookmark_id:int, tag_id:int) -> None:
+    #     sql_statement = "INSERT INTO Bookmark_tags (bookmark_id, tag_id) VALUES (?,?);"
+    #     Connection.sql_insert(self, sql_statement, (bookmark_id, tag_id,))
+    
+    def addTagToBookmark (self, params_:dict) -> None:
         sql_statement = "INSERT INTO Bookmark_tags (bookmark_id, tag_id) VALUES (?,?);"
-        Connection.sql_insert(self, sql_statement, (bookmark_id, tag_id,))
+        params = (params_['bookmark_id'], params_['tag_id'],)
+        Connection.sql_insert(self, sql_statement, params)
 
     # DELETE
     def removeBookmark (self, bookmark_id:int) -> None:

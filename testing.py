@@ -3,10 +3,10 @@ from Controller import Connection, SQLStatements
 s = SQLStatements()
 
 # TESTING GET BOOKMARKS
-print (s.getBookmarks("all"))
+# print (s.getBookmarks("all"))
 
 # TESTING GET TAGS
-# print (s.getTags())
+print (s.getTags())
 
 #TESTING ADDING BOOKMARK
 

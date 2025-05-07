@@ -44,12 +44,28 @@ class SQLStatements (Connection) :
             case "a":
                 sql_statement = "SELECT * FROM Bookmarks WHERE archived='Y';"
 
-        bookmarks = Connection.sql_get(self, sql_statement)
+        bookmarks_ = Connection.sql_get(self, sql_statement)
+        bookmarks = dict()
+
+        for b in bookmarks_:
+            keys = ["bookmark_id","bookmark_title","bookmark_url","date_added","archived","date_archived"]
+            values = [b[0], b[1], b[2], b[3], b[4], b[5]]
+            bookmark = dict(zip(keys, values))
+            bookmarks[b[0]] = bookmark
         return bookmarks
 
     def getTags (self) -> dict:
         sql_statement = "SELECT * FROM Tags;"
-        tags = Connection.sql_get(self, sql_statement)
+        tags_ = Connection.sql_get(self, sql_statement)
+
+        tags = dict()
+
+        for t in tags_:
+            keys = ["tag_id", "tag_name"]
+            values = [t[0], t[1]]
+            tag = dict(zip(keys, values))
+            tags[t[0]] = tag
+
         return tags
     
     # INSERT

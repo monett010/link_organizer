@@ -63,10 +63,6 @@ class SQLStatements (Connection) :
         sql_statement = "INSERT INTO Tags (tag_name) VALUES (?);"
         Connection.sql_insert(self, sql_statement, (tag_name,))
 
-    # def addTagToBookmark (self, bookmark_id:int, tag_id:int) -> None:
-    #     sql_statement = "INSERT INTO Bookmark_tags (bookmark_id, tag_id) VALUES (?,?);"
-    #     Connection.sql_insert(self, sql_statement, (bookmark_id, tag_id,))
-    
     def addTagToBookmark (self, params_:dict) -> None:
         sql_statement = "INSERT INTO Bookmark_tags (bookmark_id, tag_id) VALUES (?,?);"
         params = (params_['bookmark_id'], params_['tag_id'],)
@@ -81,9 +77,7 @@ class SQLStatements (Connection) :
         sql_statement = "DELETE FROM Tags WHERE tag_id = ?;"
         Connection.sql_delete(self, sql_statement, (tag_id,))
     
-    # def removeTagFromBookmark (self, tag_id:int, bookmark_id:int) -> None:
-    #     sql_statement = "DELETE FROM Bookmark_tags WHERE tag_id = ? AND bookmark_id = ?;"
-    #     Connection.sql_delete(self,sql_statement, (tag_id, bookmark_id,))
+
     def removeTagFromBookmark (self, params_) -> None:
         sql_statement = "DELETE FROM Bookmark_tags WHERE tag_id = ? AND bookmark_id = ?;"
         params = (params_['tag_id'],params_['bookmark_id'],)

@@ -53,9 +53,11 @@ class SQLStatements (Connection) :
         return tags
     
     # INSERT
-    def addBookmark (self, params_:tuple) -> None:
+
+    def addBookmark (self, params_:dict) -> None:
         sql_statement = "INSERT INTO Bookmarks (bookmark_title,bookmark_url,date_added) VALUES (?,?,?);"
-        Connection.sql_insert(self, sql_statement, params_)
+        params = (params_['bookmark_title'], params_['bookmark_url'], params_['date_added'],)
+        Connection.sql_insert(self, sql_statement, params)
 
     def addTag (self, tag_name:str) -> None:
         sql_statement = "INSERT INTO Tags (tag_name) VALUES (?);"

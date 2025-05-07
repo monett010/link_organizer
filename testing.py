@@ -16,6 +16,10 @@ s = SQLStatements()
 
 # s.addBookmark ((bookmark_title, bookmark_url, date_added,))
 
+# TESTING ADDING BOOKMARK V2
+# params = {'bookmark_title':'How To Define A Function With Optional Arguments?', 'bookmark_url':'https://stackoverflow.com/questions/9539921/how-do-i-define-a-function-with-optional-arguments', 'date_added':'2025-05-07'}
+
+# s.addBookmark (params)
 
 # TESTING ADDING TAG
 # s.addTag ("documentation still rules")

@@ -22,6 +22,15 @@ class Connection ():
         cursor.close()
         connection_.close()
 
+    def sql_delete (self, sql_statement, params):
+        connection_ = sqlite3.connect(self.db)
+        cursor = connection_.cursor()
+        cursor.execute(sql_statement, params)
+        connection_.commit()
+        cursor.close()
+        connection_.close()
+
+
 
 class SQLStatements (Connection) :
 
@@ -55,3 +64,10 @@ class SQLStatements (Connection) :
     def addTagToBookmark (self, bookmark_id, tag_id) -> None:
         sql_statement = "INSERT INTO Bookmark_tags (bookmark_id, tag_id) VALUES (?,?);"
         Connection.sql_insert(self, sql_statement, (bookmark_id, tag_id,))
+
+    # DELETE
+    def removeBookmark (self, bookmark_id) -> None:
+        sql_statement = "DELETE FROM Bookmarks WHERE bookmark_id = ?;"
+        Connection.sql_delete(self, sql_statement, (bookmark_id,))
+
+    

@@ -11,22 +11,41 @@ s = SQLStatements()
 def hello ():
         return "Hello!"
 
-@app.get ("/get/bookmarks")
+# gets all regular (unarchived) bookmarks
+@app.get ("/bookmarks")
 def getBookmarks ():
-        return s.getBookmarks("all")
+        return s.getBookmarks("u")
 
-
-@app.get ("/get/bookmarks/<id>")
+@app.get ("/bookmarks/<id>")
 def getBookmarkbyId (id):
         return s.getBookmark(id)
 
-@app.get ("/get/tags")
+@app.get ("/bookmarks/archived")
+def getArchivedBookmarks ():
+        return s.getBookmarks("a")
+
+# gets all bookmarks, archived and unarchived
+@app.get ("/bookmarks/all")
+def getAllBookmarks ():
+        return s.getBookmarks("all")
+
+@app.get ("/tags")
 def getTags ():
         return s.getTags()
 
-@app.get ("/get/tags/<id>")
+@app.get ("/tags/<id>")
 def getTag(id):
-        return s.getTag(id)        
+        return s.getTag(id)
+
+@app.post ("/add/bookmark")
+# not sure how this will work yet
+
+@app.post ("/add/tag")
+def addTag():
+        # tag_name = request.args.get('tag_name')
+        tag_name = request.form['tag_name']
+        s.addTag(tag_name)
+        return "Successfully added tag."
 
 if __name__ == "__main__":
         app.run(debug=True)

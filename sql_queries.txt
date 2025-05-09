@@ -34,13 +34,21 @@ DELETE FROM Tags WHERE tag_id = ?;
 - Get bookmarks from tag
 SELECT bookmark_id FROM Bookmark_tags WHERE tag_id = ?;
 
-SELECT Bookmark_tags.bookmark_id AS bookmark_id,
-Bookmarks.bookmark_title AS title,
-Bookmarks.bookmark_url AS url
-FROM Bookmark_tags
-INNER JOIN Bookmark_tags ON Bookmark_tags.bookmark_id = Bookmarks.bookmark_id
-WHERE Bookmark_tags.tag_id = 1;
 
+[[SELECT Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title, Bookmarks.bookmark_id AS bookmark_id
+FROM Bookmark_tags
+INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id
+AND Bookmark_tags.tag_id = 1;]]
+
+SELECT Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title, Bookmarks.bookmark_id AS bookmark_id
+FROM Bookmark_tags
+INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id
+AND Bookmark_tags.tag_id = 1 AND Bookmarks.archived='N';
+
+SELECT Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title, Bookmarks.bookmark_id AS bookmark_id
+FROM Bookmark_tags
+INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id
+AND Bookmark_tags.tag_id = 1 AND Bookmarks.archived='Y';
 
 - add a thing to optionally get multiple bookmark ids on getBookmark
 

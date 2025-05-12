@@ -42,4 +42,4 @@ s = SQLStatements()
 # s.addTagToBookmark(4, 5)
 
 # TESTING GET BOOKMARKS WITH TAG
-print(s.getBookmarksWithTag(1))
+print(s.getBookmarksWithTag(1, "u"))

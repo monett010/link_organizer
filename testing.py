@@ -4,7 +4,7 @@ s = SQLStatements()
 
 # TESTING GET BOOKMARKS
 # print (s.getBookmarks("u"))
-print(s.getBookmark(1))
+# print(s.getBookmark(1))
 
 # TESTING GET TAGS
 # print (s.getTags())
@@ -40,3 +40,6 @@ print(s.getBookmark(1))
 
 # s.addTag("rip private equity")
 # s.addTagToBookmark(4, 5)
+
+# TESTING GET BOOKMARKS WITH TAG
+print(s.getBookmarksWithTag(1))

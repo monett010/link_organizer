@@ -56,6 +56,19 @@ class SQLStatements (Connection) :
             bookmarks[b[0]] = bookmark
         return bookmarks
     
+    def getBookmarksWithTag (self, tag_id:int, opt=0):
+        match opt:
+            case 0:
+                sql_statement = "SELECT Bookmarks.bookmark_id AS bookmark_id, Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title FROM Bookmark_tags INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id AND Bookmark_tags.tag_id = ? AND Bookmarks.archived='N';"
+            case "a":
+                sql_statement = "SELECT Bookmarks.bookmark_id AS bookmark_id, Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title FROM Bookmark_tags INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id AND Bookmark_tags.tag_id = ? AND Bookmarks.archived='Y';"
+            case "u":
+                sql_statement = "SELECT Bookmarks.bookmark_id AS bookmark_id, Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title FROM Bookmark_tags INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id AND Bookmark_tags.tag_id = ?;"
+
+        bookmarks_ = Connection.sql_fetch(self, sql_statement, (tag_id,))
+        return bookmarks_   
+
+
     def getTag (self, tag_id:int) -> dict:
         sql_statement = "SELECT * FROM Tags WHERE tag_id=?;"
         tag = Connection.sql_fetch(self, sql_statement, (tag_id,))

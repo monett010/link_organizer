@@ -12,9 +12,15 @@ def hello ():
         return "Hello!"
 
 # gets all regular (unarchived) bookmarks
-@app.get ("/bookmarks")
+@app.get ("/bookmarks/")
 def getBookmarks ():
         return s.getBookmarks("u")
+
+# gets (unarchived) bookmarks with a certain tag
+@app.get ("/bookmarks")
+def getBookmarksWithTag ():
+        tag_id = request.args.get("tag_id")
+        return s.getBookmarksWithTag(tag_id)
 
 @app.get ("/bookmarks/<id>")
 def getBookmarkbyId (id):

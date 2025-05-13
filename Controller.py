@@ -62,7 +62,7 @@ class SQLStatements (Connection) :
                 sql_statement = "SELECT Bookmarks.bookmark_id AS bookmark_id, Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title FROM Bookmark_tags INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id AND Bookmark_tags.tag_id = ? AND Bookmarks.archived='N';"
             case "a":
                 sql_statement = "SELECT Bookmarks.bookmark_id AS bookmark_id, Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title FROM Bookmark_tags INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id AND Bookmark_tags.tag_id = ? AND Bookmarks.archived='Y';"
-            case "u":
+            case "all":
                 sql_statement = "SELECT Bookmarks.bookmark_id AS bookmark_id, Bookmarks.bookmark_url AS url, Bookmarks.bookmark_title AS title FROM Bookmark_tags INNER JOIN Bookmarks ON Bookmarks.bookmark_id = Bookmark_tags.bookmark_id AND Bookmark_tags.tag_id = ?;"
 
         bookmarks_ = Connection.sql_fetch(self, sql_statement, (tag_id,))

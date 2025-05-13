@@ -26,14 +26,24 @@ def getBookmarksWithTag ():
 def getBookmarkbyId (id):
         return s.getBookmark(id)
 
-@app.get ("/bookmarks/archived")
+@app.get ("/bookmarks/archived/")
 def getArchivedBookmarks ():
         return s.getBookmarks("a")
 
+@app.get ("/bookmarks/archived")
+def getArchivedBookmarksWithTag ():
+        tag_id = request.args.get("tag_id")
+        return s.getBookmarksWithTag(tag_id,"a")
+
 # gets all bookmarks, archived and unarchived
-@app.get ("/bookmarks/all")
+@app.get ("/bookmarks/all/")
 def getAllBookmarks ():
         return s.getBookmarks("all")
+
+@app.get ("/bookmarks/all")
+def getAllBookmarksWithTag():
+        tag_id = request.args.get("tag_id")
+        return s.getBookmarksWithTag(tag_id,"all")
 
 @app.get ("/tags")
 def getTags ():

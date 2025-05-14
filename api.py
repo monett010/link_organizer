@@ -11,6 +11,10 @@ s = SQLStatements()
 def hello ():
         return "Hello!"
 
+# =======
+# GET
+# =======
+
 # gets all regular (unarchived) bookmarks
 @app.get ("/bookmarks/")
 def getBookmarks ():
@@ -52,6 +56,10 @@ def getTags ():
 @app.get ("/tags/<id>")
 def getTag(id):
         return s.getTag(id)
+
+# ======
+# ADD
+# ======
 
 @app.post ("/add/bookmark")
 def addBookmark():

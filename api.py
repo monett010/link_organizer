@@ -26,14 +26,17 @@ def getBookmarksWithTag ():
         tag_id = request.args.get("tag_id")
         return s.getBookmarksWithTag(tag_id)
 
+# Gets a bookmark by its id
 @app.get ("/bookmarks/<id>")
 def getBookmarkbyId (id):
         return s.getBookmark(id)
 
+# Gets all archived bookmarks
 @app.get ("/bookmarks/archived/")
 def getArchivedBookmarks ():
         return s.getBookmarks("a")
 
+# Gets all archived bookmarks that have been tagged with a certain tag
 @app.get ("/bookmarks/archived")
 def getArchivedBookmarksWithTag ():
         tag_id = request.args.get("tag_id")
@@ -44,15 +47,18 @@ def getArchivedBookmarksWithTag ():
 def getAllBookmarks ():
         return s.getBookmarks("all")
 
+# Gets all bookmarks, archived an unarchived, that have been tagged with a certain tag
 @app.get ("/bookmarks/all")
 def getAllBookmarksWithTag():
         tag_id = request.args.get("tag_id")
         return s.getBookmarksWithTag(tag_id,"all")
 
+# Gets all tags
 @app.get ("/tags")
 def getTags ():
         return s.getTags()
 
+# Gets a tag by its id
 @app.get ("/tags/<id>")
 def getTag(id):
         return s.getTag(id)
@@ -61,6 +67,7 @@ def getTag(id):
 # ADD
 # ======
 
+# Adds a bookmark
 @app.post ("/add/bookmark")
 def addBookmark():
         bookmark_title = request.get_json()['bookmark_title']
@@ -70,6 +77,7 @@ def addBookmark():
         s.addBookmark(params)
         return "Successfully added bookmark."
 
+# Adds a tag
 @app.post ("/add/tag")
 def addTag():
         # tag_name = request.form['tag_name']

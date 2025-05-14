@@ -54,7 +54,13 @@ def getTag(id):
         return s.getTag(id)
 
 @app.post ("/add/bookmark")
-# not sure how this will work yet
+def addBookmark():
+        bookmark_title = request.get_json()['bookmark_title']
+        bookmark_url = request.get_json()['bookmark_url']
+        date_added = request.get_json()['date_added']
+        params = {'bookmark_title':bookmark_title, 'bookmark_url': bookmark_url, 'date_added': date_added}
+        s.addBookmark(params)
+        return "Successfully added bookmark."
 
 @app.post ("/add/tag")
 def addTag():

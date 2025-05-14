@@ -58,7 +58,6 @@ def getTag(id):
 
 @app.post ("/add/tag")
 def addTag():
-        # tag_name = request.args.get('tag_name')
         # tag_name = request.form['tag_name']
         tag_name = request.get_json()['tag_name']
         s.addTag(tag_name)

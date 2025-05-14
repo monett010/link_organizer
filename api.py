@@ -47,7 +47,7 @@ def getArchivedBookmarksWithTag ():
 def getAllBookmarks ():
         return s.getBookmarks("all")
 
-# Gets all bookmarks, archived an unarchived, that have been tagged with a certain tag
+# Gets all bookmarks, archived and unarchived, that have been tagged with a certain tag
 @app.get ("/bookmarks/all")
 def getAllBookmarksWithTag():
         tag_id = request.args.get("tag_id")

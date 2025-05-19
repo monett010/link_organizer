@@ -6,8 +6,9 @@ class Scraper:
         self.driver = webdriver.Chrome()
 
     def getTitle(self):
+        self.driver.get(self.url)
         title = self.driver.title
         return title
 
-    def getDescription(self):
-        description = self.driver.
+    # def getDescription(self):
+    #     description = self.driver.

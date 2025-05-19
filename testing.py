@@ -1,4 +1,5 @@
 from Controller import Connection, SQLStatements
+from Scraper import Scraper
 
 s = SQLStatements()
 
@@ -42,4 +43,9 @@ s = SQLStatements()
 # s.addTagToBookmark(4, 5)
 
 # TESTING GET BOOKMARKS WITH TAG
-print(s.getBookmarksWithTag(1, "u"))
+# print(s.getBookmarksWithTag(1, "u"))
+
+# TESTING GRABBING TITLE
+url = "https://www.scrapethissite.com/"
+scraper = Scraper(url)
+print (scraper.getTitle())

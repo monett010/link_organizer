@@ -10,12 +10,6 @@ class Scraper:
         self.driver = webdriver.Chrome(options=self.options)
         self.driver.get(self.url)
 
-    # def getTitle(self):
-    #     self.driver.get(self.url)
-    #     title = self.driver.title
-    #     self.driver.quit()
-    #     return title
-
     def getTitle(self):
         html = self.driver.page_source
         soup = BeautifulSoup(html,'html.parser')

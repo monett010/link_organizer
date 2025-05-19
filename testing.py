@@ -48,4 +48,8 @@ s = SQLStatements()
 # TESTING GRABBING TITLE
 url = "https://www.scrapethissite.com/"
 scraper = Scraper(url)
-print (scraper.getTitle())
+# print (scraper.getTitle())
+# print (scraper.getTitle())
+
+# TESTING GRABBING META DESCRIPTION
+print (scraper.getDescription())

@@ -11,6 +11,9 @@ class Scraper:
         self.driver.get(self.url)
 
     def getTitle(self):
+        return self.driver.title
+
+    def getTitleSoup(self):
         html = self.driver.page_source
         soup = BeautifulSoup(html,'html.parser')
         return soup.title.get_text()

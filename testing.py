@@ -1,5 +1,5 @@
 from Controller import Connection, SQLStatements
-from Scraper import Scraper
+from Scraper import Scraper, ScraperTest
 
 s = SQLStatements()
 
@@ -47,9 +47,13 @@ s = SQLStatements()
 
 # TESTING GRABBING TITLE
 url = "https://www.scrapethissite.com/"
+url2 = "https://www.reddit.com/r/learnpython/comments/1luyuk/scraping_metadata_with_beautifulsoup/"
+url3 = "https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask"
 scraper = Scraper(url)
+scraper2 = Scraper(url2)
+scraper3 = Scraper(url3)
 # print (scraper.getTitle())
 # print (scraper.getTitle())
 
 # TESTING GRABBING META DESCRIPTION
-print (scraper.getDescription())
+# print (scraper.getTitle())

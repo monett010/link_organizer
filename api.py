@@ -66,7 +66,7 @@ def getTag(id):
         return s.getTag(id)
 
 
-@app.get ("/bookmark/info")
+@app.post ("/bookmark/info")
 def scrapeURLInfo ():
         url = request.form['url']
         scraper = Scraper(url)

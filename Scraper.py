@@ -8,10 +8,10 @@ class Scraper:
         self.options = webdriver.ChromeOptions()
         self.options.add_argument("--headless=new")
         self.driver = webdriver.Chrome(options=self.options)
-        # self.driver.get(self.url)
+        self.driver.get(self.url)
 
     def getTitle(self):
-        self.driver.get(self.url)
+        # self.driver.get(self.url)
         return self.driver.title
 
     def getTitleSoup(self):

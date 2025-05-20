@@ -68,14 +68,14 @@ def getTag(id):
         return s.getTag(id)
 
 
-@app.post ("/bookmark/info")
-def scrapeURLInfo ():
-        url = request.form['url']
-        scraper = Scraper(url)
-        title = scraper.getTitle()
-        today = date.today()
-        date_added = today.isoformat()
-        return {'bookmark_title': title, 'bookmark_url': url, 'date_added': date_added}
+# @app.post ("/bookmark/info")
+# def scrapeURLInfo ():
+#         url = request.form['url']
+#         scraper = Scraper(url)
+#         title = scraper.getTitle()
+#         today = date.today()
+#         date_added = today.isoformat()
+#         return {'bookmark_title': title, 'bookmark_url': url, 'date_added': date_added}
 
 # ======
 # ADD

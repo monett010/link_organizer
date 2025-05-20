@@ -7,7 +7,7 @@ app = Flask (__name__)
 cors = CORS(app)
 
 s = SQLStatements()
-scraper = Scraper()
+
 
 @app.route ("/")
 def hello ():
@@ -67,6 +67,10 @@ def getTag(id):
 
 
 @app.get ("/bookmark/info")
+def scrapeURLInfo ():
+        url = request.form['url']
+        scraper = Scraper(url)
+        return scraper.getTitle()
 
 # ======
 # ADD

@@ -1,11 +1,13 @@
 from flask import Flask, request
 from flask_cors import CORS
 from Controller import SQLStatements
+from Scraper import Scraper
 
 app = Flask (__name__)
 cors = CORS(app)
 
 s = SQLStatements()
+scraper = Scraper()
 
 @app.route ("/")
 def hello ():
@@ -62,6 +64,9 @@ def getTags ():
 @app.get ("/tags/<id>")
 def getTag(id):
         return s.getTag(id)
+
+
+@app.get ("/bookmark/info")
 
 # ======
 # ADD

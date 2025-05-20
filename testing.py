@@ -49,7 +49,8 @@ from Scraper import Scraper
 url = "https://www.scrapethissite.com/"
 url2 = "https://www.reddit.com/r/learnpython/comments/1luyuk/scraping_metadata_with_beautifulsoup/"
 url3 = "https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask"
-scraper = Scraper(url)
+url4 = "https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists"
+scraper = Scraper(url4)
 # scraper2 = Scraper(url2)
 # scraper3 = Scraper(url3)
 # print (scraper.getTitle())

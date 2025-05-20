@@ -2,6 +2,8 @@ from flask import Flask, request
 from flask_cors import CORS
 from Controller import SQLStatements
 from Scraper import Scraper
+import time
+from datetime import date
 
 app = Flask (__name__)
 cors = CORS(app)
@@ -70,7 +72,10 @@ def getTag(id):
 def scrapeURLInfo ():
         url = request.form['url']
         scraper = Scraper(url)
-        return scraper.getTitle()
+        title = scraper.getTitle()
+        today = date.today()
+        date_added = today.isoformat()
+        return {'bookmark_title': title, 'bookmark_url': url, 'date_added': date_added}
 
 # ======
 # ADD

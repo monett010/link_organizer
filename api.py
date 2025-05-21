@@ -69,13 +69,13 @@ def getTag(id):
 
 
 # @app.post ("/bookmark/info")
-# def scrapeURLInfo ():
-#         url = request.form['url']
-#         scraper = Scraper(url)
-#         title = scraper.getTitle()
-#         today = date.today()
-#         date_added = today.isoformat()
-#         return {'bookmark_title': title, 'bookmark_url': url, 'date_added': date_added}
+def scrapeURLInfo ():
+        url = request.form['url']
+        scraper = Scraper(url)
+        title = scraper.getTitle()
+        today = date.today()
+        date_added = today.isoformat()
+        return {'bookmark_title': title, 'bookmark_url': url, 'date_added': date_added}
 
 # ======
 # ADD
@@ -84,10 +84,14 @@ def getTag(id):
 # Adds a bookmark
 @app.post ("/add/bookmark")
 def addBookmark():
-        bookmark_title = request.get_json()['bookmark_title']
-        bookmark_url = request.get_json()['bookmark_url']
-        date_added = request.get_json()['date_added']
-        params = {'bookmark_title':bookmark_title, 'bookmark_url': bookmark_url, 'date_added': date_added}
+        if (request.data):
+                bookmark_title = request.get_json()['bookmark_title']
+                bookmark_url = request.get_json()['bookmark_url']
+                date_added = request.get_json()['date_added']
+                params = {'bookmark_title':bookmark_title, 'bookmark_url': bookmark_url, 'date_added': date_added}
+        else:
+                params = scrapeURLInfo()
+
         s.addBookmark(params)
         return "Successfully added bookmark."
 

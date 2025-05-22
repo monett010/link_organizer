@@ -23,9 +23,9 @@ section#bookmark_list {
 
 div.bookmark {
     display: flex;
-    height: 5rem;
-    width: 100%;
-    border: 1px solid black;
+    height: 7rem;
+    width: 70%;
+    border: 1px solid grey;
 }
 
 #thumbnail {

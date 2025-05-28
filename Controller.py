@@ -34,7 +34,14 @@ class SQLStatements (Connection) :
     # GET
     def getBookmark (self, bookmark_id:int) -> dict:
         sql_statement = "SELECT * FROM Bookmarks WHERE bookmark_id=?;"
-        bookmark = Connection.sql_fetch(self, sql_statement, (bookmark_id,))
+        bookmark_ = Connection.sql_fetch(self, sql_statement, (bookmark_id,))
+        bookmark = dict()
+
+        for b in bookmark_:
+            keys = ["bookmark_id","bookmark_title","bookmark_url","date_added","archived","date_archived"]
+            values = [b[0], b[1], b[2], b[3], b[4], b[5]]
+            bmk = dict(zip(keys, values))
+            bookmark[b[0]] = bmk
         return bookmark
 
     def getBookmarks (self, opt:str) -> dict:

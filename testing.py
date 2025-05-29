@@ -1,7 +1,7 @@
 from Controller import Connection, SQLStatements
 from Scraper import Scraper
 
-# s = SQLStatements()
+s = SQLStatements()
 
 # TESTING GET BOOKMARKS
 # print (s.getBookmarks("u"))
@@ -45,17 +45,20 @@ from Scraper import Scraper
 # TESTING GET BOOKMARKS WITH TAG
 # print(s.getBookmarksWithTag(1, "u"))
 
+# TESTING GET BOOKMARK TAGS
+print (s.getBookmarkTags(8)['tag_name'])
+
 # TESTING GRABBING TITLE
 url = "https://www.scrapethissite.com/"
 url2 = "https://www.reddit.com/r/learnpython/comments/1luyuk/scraping_metadata_with_beautifulsoup/"
 url3 = "https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask"
 url4 = "https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists"
-scraper = Scraper(url4)
+# scraper = Scraper(url4)
 # scraper2 = Scraper(url2)
 # scraper3 = Scraper(url3)
 # print (scraper.getTitle())
 # print (scraper.getTitle())
 
 # TESTING GRABBING META DESCRIPTION
-print (scraper.getTitle())
+# print (scraper.getTitle())
 

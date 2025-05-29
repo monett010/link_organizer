@@ -28,6 +28,7 @@ s = SQLStatements()
 
 # TESTING ADDING TAG TO BOOKMARK
 # s.addTagToBookmark ("6","3")
+s.addTagToBookmark ({'bookmark_id': 13,'tag_id':3})
 
 # TESTING REMOVE BOOKMARK
 # s.removeBookmark(7)
@@ -46,7 +47,7 @@ s = SQLStatements()
 # print(s.getBookmarksWithTag(1, "u"))
 
 # TESTING GET BOOKMARK TAGS
-print (s.getBookmarkTags(8))
+# print (s.getBookmarkTags(8))
 
 # TESTING GRABBING TITLE
 url = "https://www.scrapethissite.com/"

@@ -57,6 +57,12 @@ AND Bookmark_tags.tag_id = 1 AND Bookmarks.archived='Y';
 
 - Export links
 
+- Get tags for a bookmark
+SELECT Bookmark_tags.tag_id AS tag_id, Tags.tag_name as tag_name 
+FROM Bookmark_tags
+INNER JOIN Tags ON Bookmark_tags.tag_id = Tags.tag_id
+WHERE bookmark_id = ?;
+
 ====
 API
 

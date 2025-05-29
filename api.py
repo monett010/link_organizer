@@ -35,6 +35,10 @@ def getBookmarksWithTag ():
 def getBookmarkbyId (id):
         return s.getBookmark(id)
 
+@app.get ("/bookmarks/<id>/tags/")
+def getBookmarkTags (id):
+        return s.getBookmarkTags(id)
+
 # Gets all archived bookmarks
 @app.get ("/bookmarks/archived/")
 def getArchivedBookmarks ():

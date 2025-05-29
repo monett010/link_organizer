@@ -46,7 +46,7 @@ s = SQLStatements()
 # print(s.getBookmarksWithTag(1, "u"))
 
 # TESTING GET BOOKMARK TAGS
-print (s.getBookmarkTags(8)['tag_name'])
+print (s.getBookmarkTags(8))
 
 # TESTING GRABBING TITLE
 url = "https://www.scrapethissite.com/"

@@ -85,8 +85,14 @@ class SQLStatements (Connection) :
     def getBookmarkTags (self, bookmark_id:int) -> dict:
         sql_statement = "SELECT Bookmark_tags.tag_id AS tag_id, Tags.tag_name as tag_name FROM Bookmark_tags INNER JOIN Tags ON Bookmark_tags.tag_id = Tags.tag_id WHERE bookmark_id = ?;"
         tags_ = Connection.sql_fetch(self, sql_statement, (bookmark_id,))
-        keys = ["tag_id","tag_name"]
-        tags = dict(zip(keys, [tags_[0][0], tags_[0][1]]))
+        
+        tags = dict()
+        for t in tags_:
+            keys = ["tag_id","tag_name"]
+            values = [t[0], t[1]]
+            tag = dict(zip(keys, values))
+            tags[t[0]] = tag
+            
         return tags
 
     def getTag (self, tag_id:int) -> dict:

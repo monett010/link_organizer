@@ -12,12 +12,21 @@
     </head>
     <body>
         <h1>Bookmarks</h1>
-        <section id="add_bookmark">
+        <div id="add_bookmark" class="home_forms">
             <form id="add_form" method="POST" action="http://127.0.0.1:5000/add/bookmark">
                 <input type="text" name="url"/>
                 <button type="submit">Add</button>
             </form>
-        </section>
+        </div>
+
+        <div id="search"  class="home_forms">
+            <form id="search" method="POST">
+                <input type="text" name="q">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+
+        <section id="everything">
         <section id="bookmark_list">
 
             <!-- <div class="bookmark"> 
@@ -28,6 +37,7 @@
                 </ul> 
              </div>
              -->
+        </section>
         </section>
              <!--
         

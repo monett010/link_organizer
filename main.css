@@ -1,5 +1,17 @@
+
+div.home_forms {
+    height: 70px;
+    width: 60%;
+    /* background-color: black; */
+    /* border-radius: 20px; */
+    top: 100px;
+    display: none;
+
+}
+
+
 form#add_form {
-    width: 100%;
+    width: 80%;
     height: 50px;
     /* background-color: #022061; */
 

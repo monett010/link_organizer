@@ -11,6 +11,18 @@ async function getBookmarks(){
     return json;
 }
 
+async function getBookmarksByTag(tag_id){
+    const response = await fetch("http://127.0.0.1:5000/bookmarks?tag_id=" + tag_id);
+    const json = await response.json();
+    return json;
+}
+
+async function getArchivedBookmarks() {
+    const response = await fetch("http://127.0.0.1:5000/bookmarks/archived/");
+    const json = await response.json();
+    return json;
+}
+
 async function getBookmarkTags(bookmark_id){
     const response = await fetch("http://127.0.0.1:5000/bookmarks/" + bookmark_id + "/tags/")
     const json = await response.json();
@@ -53,3 +65,25 @@ async function writeBookmarks() {
     }
 }
 
+async function writeArchivedBookmarks() {
+    const bookmarks = await getArchivedBookmarks();
+    const node = document.getElementById("bookmark_list");
+
+    for (b in bookmarks) {
+        const bookmark_tags = await printTags(b);
+        const bookmark_html = "<div class='bookmark' id='" + b + "'> <ul><li><a href='bookmark.html'>" + bookmarks[b]['bookmark_title'] + "</a></li><li><a href='" + bookmarks[b]['bookmark_url'] + "'>" + bookmarks[b]['bookmark_url'] + "</a></li><li>" + bookmark_tags + "</li></ul></div>";
+        node.innerHTML += bookmark_html;
+    }
+}
+
+async function writeBookmarksWithTag(tag_id) {
+    const bookmarks = await getBookmarksByTag(tag_id);
+    const node = document.getElementById("bookmark_list");
+
+    for (b in bookmarks) {
+        const bookmark_tags = await printTags(b);
+        const bookmark_html = "<div class='bookmark' id='" + b + "'> <ul><li><a href='bookmark.html'>" + bookmarks[b]['bookmark_title'] + "</a></li><li><a href='" + bookmarks[b]['bookmark_url'] + "'>" + bookmarks[b]['bookmark_url'] + "</a></li><li>" + bookmark_tags + "</li></ul></div>";
+        node.innerHTML += bookmark_html;
+    }
+
+}

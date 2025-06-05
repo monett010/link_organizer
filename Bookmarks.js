@@ -1,11 +1,66 @@
 class Bookmarks {
 
-    constructor () {
-        
-    }
-    async method fetchBookmarks (endpoint_url){
+    async fetchData (endpoint_url){
         const response = await fetch(endpoint_url);
         const json = await response.json();
         return json;
     }
+
+    async getBookmarks (tag=0) {
+        let endpoint_url = "";
+        switch (tag) {
+            case "all":
+                endpoint_url = "http://127.0.0.1:5000/bookmarks/all/"
+                break;
+            case "archived":
+                endpoint_url = "http://127.0.0.1:5000/bookmarks/archived/";
+                break;
+            default:
+                endpoint_url = "http://127.0.0.1:5000/bookmarks/";
+            }
+        const bookmarks = await this.fetchData(endpoint_url);
+        return bookmarks;
+    }
+
+    async getBookmarksByTag (tag_id) {
+        const endpoint_url = "http://127.0.0.1:5000/bookmarks?tag_id=" + tag_id
+        const bookmarks = await this.fetchData(endpoint_url);
+        return bookmarks;
+    }
+
+
+
+    async writeBookmarks (bookmarks_) {
+        bookmarks = await bookmarks_
+        const node = document.getElementById("bookmark_list");
+        const tags = new BookmarkTags();
+
+         for (let b in bookmarks) {
+            const bookmark_tags = await tags.printTags(b);
+            const bookmark_html = "<div class='bookmark' id='" + b + "'> <ul><li><a href='bookmark.html'>" + bookmarks[b]['bookmark_title'] + "</a></li><li><a href='" + bookmarks[b]['bookmark_url'] + "'>" + bookmarks[b]['bookmark_url'] + "</a></li><li>" + bookmark_tags + "</li></ul></div>";
+            node.innerHTML += bookmark_html;
+        }
+        
+    }
+
+}
+
+
+class BookmarkTags extends Bookmarks {
+
+    async getBookmarkTags(bookmark_id){
+        const response = await fetch("http://127.0.0.1:5000/bookmarks/" + bookmark_id + "/tags/")
+        const json = await response.json();
+        return json;
+    }
+
+    async printTags(bookmark_id) {
+        const bookmark_tags = await this.getBookmarkTags (bookmark_id);
+        let tags = "";
+            for (let t in bookmark_tags){
+                tags += bookmark_tags[t]['tag_name'] + " | ";
+            }
+        return tags.substring(0, tags.length - 3);
+    }
+
 }

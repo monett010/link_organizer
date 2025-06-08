@@ -1,0 +1,4 @@
+- pass the tag through the URL
+- when you click the anchor it goes to the separate page. i don't
+think i'm gonna be able to do this on the same page like with the
+React version

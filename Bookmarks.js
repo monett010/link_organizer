@@ -64,3 +64,17 @@ class BookmarkTags extends Bookmarks {
     }
 
 }
+
+class Tags extends Bookmarks {
+    async printTagLinks () {
+        const tags_ = await this.fetchData ("http://127.0.0.1:5000/tags");
+        const node = document.getElementById("tags_menu");
+
+
+        for (let t in tags_) {
+            let url = "index.html?tag=" + t;
+            node.innerHTML += "<a href='" + url + "'>" + tags_[t]['tag_name'] + "</a>";
+        }
+    }
+
+}

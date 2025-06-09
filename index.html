@@ -22,7 +22,6 @@
             <a href="index.html?tag=main">Main bookmarks</a>
             <a href="index.html?tag=archived">Archived bookmarks</a>
             <a href="index.html?tag=1">evil sites</a>
-            <a href="">Tag 2</a>
         </nav>
         <div id="add_bookmark" class="home_forms">
             <form id="add_form" method="POST" action="http://127.0.0.1:5000/add/bookmark">
@@ -52,7 +51,11 @@
         </section>
         </section>
         <script>
+            const tag_links = new Tags();
+            tag_links.printTagLinks();
+
             let bookmarks = new Bookmarks();
+            
 
             const queryString = window.location.search;
             const urlParams = new URLSearchParams(queryString);
@@ -68,7 +71,7 @@
                 bookmarks.writeBookmarks(bookmarks_);
             }
             else {
-                console.log(decodeURIComponent(tag))
+                // console.log(decodeURIComponent(tag))
                 let bookmarks_ = bookmarks.getBookmarksByTag(decodeURIComponent(tag))
                 bookmarks.writeBookmarks(bookmarks_);
             }

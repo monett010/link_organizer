@@ -62,7 +62,6 @@
             let tag = urlParams.get('tag')
             
             if (tag === null || tag === "main") {
-
                 let bookmarks_ = bookmarks.getBookmarks()
                 bookmarks.writeBookmarks(bookmarks_);
             }
@@ -71,15 +70,9 @@
                 bookmarks.writeBookmarks(bookmarks_);
             }
             else {
-                // console.log(decodeURIComponent(tag))
                 let bookmarks_ = bookmarks.getBookmarksByTag(decodeURIComponent(tag))
                 bookmarks.writeBookmarks(bookmarks_);
             }
-
-            // writeBookmarks();
-            // writeArchivedBookmarks();
-            // writeBookmarksWithTag(1);
-            // printTags(13);
         </script>
     </body>
 </html>

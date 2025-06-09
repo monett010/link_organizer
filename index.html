@@ -19,9 +19,9 @@
             <button>Options</button>
         </nav>
         <nav id="tags_menu">
-            <a href="">Main bookmarks</a>
-            <a href="">Archived bookmarks</a>
-            <a href="">Tag 1</a>
+            <a href="index.html?tag=main">Main bookmarks</a>
+            <a href="index.html?tag=archived">Archived bookmarks</a>
+            <a href="index.html?tag=1">evil sites</a>
             <a href="">Tag 2</a>
         </nav>
         <div id="add_bookmark" class="home_forms">
@@ -53,8 +53,26 @@
         </section>
         <script>
             let bookmarks = new Bookmarks();
-            let bookmarks_ = bookmarks.getBookmarks()
-            bookmarks.writeBookmarks(bookmarks_);
+
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            let tag = urlParams.get('tag')
+            
+            if (tag === null || tag === "main") {
+
+                let bookmarks_ = bookmarks.getBookmarks()
+                bookmarks.writeBookmarks(bookmarks_);
+            }
+            else if (tag === "archived") {
+                let bookmarks_ = bookmarks.getBookmarks("archived")
+                bookmarks.writeBookmarks(bookmarks_);
+            }
+            else {
+                console.log(decodeURIComponent(tag))
+                let bookmarks_ = bookmarks.getBookmarksByTag(decodeURIComponent(tag))
+                bookmarks.writeBookmarks(bookmarks_);
+            }
+
             // writeBookmarks();
             // writeArchivedBookmarks();
             // writeBookmarksWithTag(1);

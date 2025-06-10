@@ -13,25 +13,25 @@
     </head>
     <body>
         <h1>Bookmarks</h1>
-         <nav id="main_menu">
-            <button>Add</button>
-            <button>Search</button>
-            <button>Options</button>
+         <nav id="main_menu" aria-label="main_menu">
+            <button type="button">Add</button>
+            <button type="button">Search</button>
+            <button type="button">Options</button>
         </nav>
-        <nav id="tags_menu">
+        <nav id="tags_menu" aria-label="tags_menu">
             <a href="index.html?tag=main">Main bookmarks</a>
             <a href="index.html?tag=archived">Archived bookmarks</a>
             <a href="index.html?tag=1">evil sites</a>
         </nav>
         <div id="add_bookmark" class="home_forms">
             <form id="add_form" method="POST" action="http://127.0.0.1:5000/add/bookmark">
-                <input type="text" name="url"/>
+                <input type="text" name="url">
                 <button type="submit">Add</button>
             </form>
         </div>
 
         <div id="search"  class="home_forms">
-            <form id="search" method="POST">
+            <form id="search_form" method="POST">
                 <input type="text" name="q">
                 <button type="submit">Search</button>
             </form>

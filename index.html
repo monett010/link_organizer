@@ -63,7 +63,7 @@
             const urlParams = new URLSearchParams(queryString);
             let tag = urlParams.get('tag')
             
-            // If the tag parameter is a null, main, or archived, use Bookmarks.getBookmarks()
+            // If the tag parameter is null, main, or archived, use Bookmarks.getBookmarks()
             if (tag === null || tag === "main") {
                 let bookmarks_ = bookmarks.getBookmarks()
                 bookmarks.writeBookmarks(bookmarks_);
@@ -72,7 +72,7 @@
                 let bookmarks_ = bookmarks.getBookmarks("archived")
                 bookmarks.writeBookmarks(bookmarks_);
             }
-            // If the tag parameter is a tag number, use Bookmarks.getBookmarksByTag() 
+            // If the tag parameter is a tag id, use Bookmarks.getBookmarksByTag() 
             else {
                 let bookmarks_ = bookmarks.getBookmarksByTag(decodeURIComponent(tag))
                 bookmarks.writeBookmarks(bookmarks_);

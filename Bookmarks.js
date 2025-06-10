@@ -1,10 +1,12 @@
-class Bookmarks {
-
+class Fetch {
     async fetchData (endpoint_url){
         const response = await fetch(endpoint_url);
         const json = await response.json();
         return json;
     }
+}
+
+class Bookmarks extends Fetch {
 
     async getBookmarks (tag=0) {
         let endpoint_url = "";
@@ -65,7 +67,7 @@ class BookmarkTags extends Bookmarks {
 
 }
 
-class Tags extends Bookmarks {
+class Tags extends Fetch {
     async printTagLinks () {
         const tags_ = await this.fetchData ("http://127.0.0.1:5000/tags");
         const node = document.getElementById("tags_menu");

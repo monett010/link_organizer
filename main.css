@@ -34,7 +34,7 @@ section#bookmark_list {
 }
 
 div.bookmark {
-    display: flex;
+    /* display: flex; */
     height: 7rem;
     width: 70%;
     border: 1px solid grey;
@@ -49,3 +49,16 @@ div.bookmark {
     height: 50px;
     width: 100%;
 }
+
+div#dots {
+    display: flex;
+    justify-content: right;
+    position: relative;
+    top: -100px;
+}
+
+div#dots:after {
+  content: '\2807';
+  font-size: 20px;
+  }
+  

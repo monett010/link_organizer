@@ -61,4 +61,14 @@ div#dots:after {
   content: '\2807';
   font-size: 20px;
   }
-  
+
+nav.menu {
+    /* visibility: hidden; */
+    height: 200px; width: 150px;
+    background-color: white;
+    border: 1px solid grey;
+
+    display: inline-block;
+    position: relative;
+    z-index: 50;
+  }

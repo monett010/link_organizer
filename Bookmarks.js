@@ -41,8 +41,15 @@ class Bookmarks extends Fetch {
             const bookmark_tags = await tags.printTags(b);
             const bookmark_html = "<div class='bookmark' id='" + b + "'> <ul><li><a href='bookmark.html'>" + bookmarks[b]['bookmark_title'] + "</a></li><li><a href='" + bookmarks[b]['bookmark_url'] + "'>" + bookmarks[b]['bookmark_url'] + "</a></li><li>" + bookmark_tags + "</li></ul><div id='dots'></div></div>";
             node.innerHTML += bookmark_html;
+            this.writeContextMenu(b);
         }
         
+    }
+
+    writeContextMenu (bookmark_id) {
+        const node = document.getElementById(bookmark_id);
+        const menu_html = "<nav class='menu' id='" + bookmark_id + "'><ul><li><a href=''>Link 1</a></li><li><a href=''>Link 2</a></li><li><a href=''>Link 3</a></li></ul></nav>";
+        node.innerHTML += menu_html;
     }
 
 }

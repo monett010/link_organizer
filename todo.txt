@@ -1,0 +1,1 @@
+- make context menu pop up on click

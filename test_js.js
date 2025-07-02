@@ -87,3 +87,27 @@ async function writeBookmarksWithTag(tag_id) {
     }
 
 }
+
+async function logDots() {
+    let dots = document.getElementsByClassName("dots");
+    // console.log(dots_);
+}
+
+function addClickEvent () {
+        let dots = document.getElementsByClassName("dots");
+        dots[0].style.color="red"
+            for (let d=0; d<dots.length; d++) {
+                // let dots_id_ = d.id;
+                // let dots_id = dots_id_.split("_")[1];
+
+                // const menu_ = document.getElementById("menu_" + dots_id);
+                console.log(dots[d])
+            //     dots[d].addEventListener("click", (e)=>{
+            //         if (menu_.style.visibility === "visible") {
+            //             menu_.style.visibility = "hidden";
+            //         } else {
+            //             menu_.style.visibility = "visible";
+            //         }
+            // });
+            }    
+}

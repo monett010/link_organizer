@@ -9,7 +9,8 @@
         <link rel="stylesheet" href="main.css">
         <title>Bookmark Manager</title>
         <!-- <script src="test_js.js"></script> -->
-         <script src="Bookmarks.js"></script>
+         <!-- <script src="Bookmarks.js"></script> -->
+         <!-- <script src="test_js.js"></script> -->
     </head>
     <body>
         <h1>Bookmarks</h1>
@@ -50,6 +51,7 @@
                 -->
             </section>
         </section>
+        <script src="Bookmarks.js"></script>
         <script>
             // Displays the tag links that go in the tags_menu nav element
             const tag_links = new Tags();
@@ -77,6 +79,38 @@
                 let bookmarks_ = bookmarks.getBookmarksByTag(decodeURIComponent(tag))
                 bookmarks.writeBookmarks(bookmarks_);
             }
+            
+
+            // dots = document.getElementsByClassName("dots")[0]
+            // setTimeout(console.log(dots),1000)
+            // addClickEvent()
+
+
+
+
+
+
+
+            // for (const d in dots) {
+            //     const dots_id_ = d.id;
+            //     // console.log(d.g)
+            //     const dots_id = dots_id_.split("_")[1];
+
+            //     const menu_ = document.getElementById("menu_" + dots_id);
+
+            //     dots.onload = function(){d.addEventListener("click", (e)=>{
+            //         if (menu_.style.visibility === "visible") {
+            //             menu_.style.visibility = "hidden";
+            //         } else {
+            //             menu_.style.visibility = "visible";
+            //         }
+            //     });};
+            // }
+        
         </script>
+
+
+
     </body>
+
 </html>

@@ -60,24 +60,6 @@
             let bookmarks = new Bookmarks();
             bookmarks.writeBookmarksList();
 
-            function getHTML() {
-                let list = document.getElementsByClassName("dots");
-                // console.log(list)
-
-                for (let l = 0; l < list.length; l++) {
-                    // console.log(list.item(l));
-                    // console.log(list.item(0))
-                    list[l].style.color="red";
-                }
-            }
-
-            // document.addEventListener("DOMContentLoaded", function(e) {
-            //     getHTML();
-            //     console.log(document.getElementsByClassName("bookmark").item(0))
-            // });
-            // setTimeout(() => { getHTML() }, 1000);
-
-
 
 
             function addEventListenerstoDots() {
@@ -99,52 +81,6 @@
             }
 
             setTimeout(() => { addEventListenerstoDots() }, 1000);
-
-
-        //     async function changeDots() {
-        //         let dots; 
-        //         await writeBookmarksList();
-        //         dots = await document.getElementById("bookmark_list").getElementsByClassName("dots");
-        //         return dots[0];
-        //     }
-
-        //  async function consoleLog() {
-        //     let dots = await changeDots();
-        //     dots.style.color="red";
-        //  }
-
-        //  consoleLog();
-            // let dots;
-            // window.addEventListener ('DOMContentLoaded', function () {
-            //     let dots = document.getElementsByClassName("dots")
-            //     console.log(dots[0])
-            //     // dots.style.color="red";
-            // });
-
-            // setTimeout(console.log(dots),1000)
-            // addClickEvent()
-
-
-
-
-
-
-
-            // for (const d in dots) {
-            //     const dots_id_ = d.id;
-            //     // console.log(d.g)
-            //     const dots_id = dots_id_.split("_")[1];
-
-            //     const menu_ = document.getElementById("menu_" + dots_id);
-
-            //     dots.onload = function(){d.addEventListener("click", (e)=>{
-            //         if (menu_.style.visibility === "visible") {
-            //             menu_.style.visibility = "hidden";
-            //         } else {
-            //             menu_.style.visibility = "visible";
-            //         }
-            //     });};
-            // }
         
         </script>
 

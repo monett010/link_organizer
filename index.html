@@ -10,7 +10,6 @@
         <title>Bookmark Manager</title>
         <!-- <script src="test_js.js"></script> -->
          <!-- <script src="Bookmarks.js"></script> -->
-         <!-- <script src="test_js.js"></script> -->
     </head>
     <body>
         <h1>Bookmarks</h1>
@@ -51,37 +50,77 @@
                 -->
             </section>
         </section>
-        <script src="Bookmarks.js"></script>
+         <script src="Bookmarks.js"></script>
         <script>
             // Displays the tag links that go in the tags_menu nav element
             const tag_links = new Tags();
             tag_links.printTagLinks();
 
+            
             let bookmarks = new Bookmarks();
-            
-            ////////
-            // Gets the tag parameter from the url and displays the appropriate set of bookmarks
-            const queryString = window.location.search;
-            const urlParams = new URLSearchParams(queryString);
-            let tag = urlParams.get('tag')
-            
-            // If the tag parameter is null, main, or archived, use Bookmarks.getBookmarks()
-            if (tag === null || tag === "main") {
-                let bookmarks_ = bookmarks.getBookmarks()
-                bookmarks.writeBookmarks(bookmarks_);
-            }
-            else if (tag === "archived") {
-                let bookmarks_ = bookmarks.getBookmarks("archived")
-                bookmarks.writeBookmarks(bookmarks_);
-            }
-            // If the tag parameter is a tag id, use Bookmarks.getBookmarksByTag() 
-            else {
-                let bookmarks_ = bookmarks.getBookmarksByTag(decodeURIComponent(tag))
-                bookmarks.writeBookmarks(bookmarks_);
-            }
-            
+            bookmarks.writeBookmarksList();
 
-            // dots = document.getElementsByClassName("dots")[0]
+            function getHTML() {
+                let list = document.getElementsByClassName("dots");
+                // console.log(list)
+
+                for (let l = 0; l < list.length; l++) {
+                    // console.log(list.item(l));
+                    // console.log(list.item(0))
+                    list[l].style.color="red";
+                }
+            }
+
+            // document.addEventListener("DOMContentLoaded", function(e) {
+            //     getHTML();
+            //     console.log(document.getElementsByClassName("bookmark").item(0))
+            // });
+            // setTimeout(() => { getHTML() }, 1000);
+
+
+
+
+            function addEventListenerstoDots() {
+                let dots = document.getElementsByClassName("dots");
+                let menus = document.getElementsByClassName("menu");
+
+
+                for (d=0; d < dots.length; d++) {
+                    let menu_id = menus[d].id;
+                    let menu_ = document.getElementById(menu_id);
+                    dots[d].addEventListener("click", (e)=>{
+                        if (menu_.style.visibility === "visible") {
+                            menu_.style.visibility = "hidden";
+                        } else {
+                            menu_.style.visibility = "visible";
+                        }
+                    });
+                }
+            }
+
+            setTimeout(() => { addEventListenerstoDots() }, 1000);
+
+
+        //     async function changeDots() {
+        //         let dots; 
+        //         await writeBookmarksList();
+        //         dots = await document.getElementById("bookmark_list").getElementsByClassName("dots");
+        //         return dots[0];
+        //     }
+
+        //  async function consoleLog() {
+        //     let dots = await changeDots();
+        //     dots.style.color="red";
+        //  }
+
+        //  consoleLog();
+            // let dots;
+            // window.addEventListener ('DOMContentLoaded', function () {
+            //     let dots = document.getElementsByClassName("dots")
+            //     console.log(dots[0])
+            //     // dots.style.color="red";
+            // });
+
             // setTimeout(console.log(dots),1000)
             // addClickEvent()
 

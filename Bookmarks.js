@@ -33,7 +33,7 @@ class Bookmarks extends Fetch {
 
 
     async writeBookmarks (bookmarks_) {
-        bookmarks = await bookmarks_
+        let bookmarks = await bookmarks_
         const node = document.getElementById("bookmark_list");
         const tags = new BookmarkTags();
 
@@ -50,6 +50,33 @@ class Bookmarks extends Fetch {
         const node = document.getElementById(bookmark_id);
         const menu_html = "<nav class='menu' id='menu_" + bookmark_id + "'><ul><li><a href=''>Link 1</a></li><li><a href=''>Link 2</a></li><li><a href=''>Link 3</a></li></ul></nav>";
         node.innerHTML += menu_html;
+    }
+
+    writeBookmarksList () {
+        ////////
+        // Gets the tag parameter from the url and displays the appropriate set of bookmarks
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        let tag = urlParams.get('tag')
+        
+        // If the tag parameter is null, main, or archived, use Bookmarks.getBookmarks()
+        if (tag === null || tag === "main") {
+            let bookmarks_ = this.getBookmarks()
+            this.writeBookmarks(bookmarks_);
+        }
+        else if (tag === "archived") {
+            let bookmarks_ = this.getBookmarks("archived")
+            this.writeBookmarks(bookmarks_);
+        }
+        // If the tag parameter is a tag id, use Bookmarks.getBookmarksByTag() 
+        else {
+            let bookmarks_ = this.getBookmarksByTag(decodeURIComponent(tag))
+            this.writeBookmarks(bookmarks_);
+        }
+    }
+
+    setBookmarkStyle (bookmark_id) {
+        document.getElementById(bookmark_id).style.color = "red";
     }
 
 }

@@ -56,31 +56,12 @@
             const tag_links = new Tags();
             tag_links.printTagLinks();
 
-            
+            // Writes the bookmarks
             let bookmarks = new Bookmarks();
             bookmarks.writeBookmarksList();
 
-
-
-            function addEventListenerstoDots() {
-                let dots = document.getElementsByClassName("dots");
-                let menus = document.getElementsByClassName("menu");
-
-
-                for (d=0; d < dots.length; d++) {
-                    let menu_id = menus[d].id;
-                    let menu_ = document.getElementById(menu_id);
-                    dots[d].addEventListener("click", (e)=>{
-                        if (menu_.style.visibility === "visible") {
-                            menu_.style.visibility = "hidden";
-                        } else {
-                            menu_.style.visibility = "visible";
-                        }
-                    });
-                }
-            }
-
-            setTimeout(() => { addEventListenerstoDots() }, 1000);
+            // Makes the dots clickable so the context menus come up
+            setTimeout(() => { bookmarks.addEventListenerstoDots() }, 1000);
         
         </script>
 

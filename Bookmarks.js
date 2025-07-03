@@ -75,8 +75,22 @@ class Bookmarks extends Fetch {
         }
     }
 
-    setBookmarkStyle (bookmark_id) {
-        document.getElementById(bookmark_id).style.color = "red";
+    addEventListenerstoDots() {
+        let dots = document.getElementsByClassName("dots");
+        let menus = document.getElementsByClassName("menu");
+
+
+        for (let d=0; d < dots.length; d++) {
+            let menu_id = menus[d].id;
+            let menu_ = document.getElementById(menu_id);
+            dots[d].addEventListener("click", (e)=>{
+                if (menu_.style.visibility === "visible") {
+                    menu_.style.visibility = "hidden";
+                } else {
+                    menu_.style.visibility = "visible";
+                }
+            });
+        }
     }
 
 }

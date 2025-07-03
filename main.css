@@ -74,3 +74,8 @@ nav.menu {
     z-index: 50;
     top: -100px; right: -950px;
   }
+
+div#dots:active nav.menu,
+div#dots:focus nav.menu {
+    visibility: visible;
+}

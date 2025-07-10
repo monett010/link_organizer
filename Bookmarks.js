@@ -48,7 +48,10 @@ class Bookmarks extends Fetch {
 
     writeContextMenu (bookmark_id) {
         const node = document.getElementById(bookmark_id);
-        const menu_html = "<nav class='menu' id='menu_" + bookmark_id + "'><ul><li><a href=''>Link 1</a></li><li><a href=''>Link 2</a></li><li><a href=''>Link 3</a></li></ul></nav>";
+        const menu_html = `<nav class='menu' id='menu_${bookmark_id}'>
+                            <ul><li><a href=''>Add Tags</a></li>
+                            <li><a href=''>Remove Tags</a></li>
+                            <li><a href=''>Copy Link</a></li></ul></nav>`;
         node.innerHTML += menu_html;
     }
 

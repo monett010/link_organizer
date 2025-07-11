@@ -63,6 +63,11 @@ FROM Bookmark_tags
 INNER JOIN Tags ON Bookmark_tags.tag_id = Tags.tag_id
 WHERE bookmark_id = ?;
 
+- Archive bookmark
+UPDATE Bookmarks
+SET archived = 'Y'
+WHERE bookmark_id = ?;
+
 ====
 API
 

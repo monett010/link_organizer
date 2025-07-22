@@ -106,5 +106,13 @@ def addTag():
         s.addTag(tag_name)
         return "Successfully added tag."
 
+# =======
+# ARCHIVE
+# =======
+@app.route ("/archive/bookmark/<id>")
+def archiveBookmark(id):
+        s.archiveBookmark(id)
+        return "Successfully archived bookmark."
+
 if __name__ == "__main__":
         app.run(debug=True)

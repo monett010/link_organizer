@@ -144,3 +144,9 @@ class SQLStatements (Connection) :
         sql_statement = "DELETE FROM Bookmark_tags WHERE tag_id = ? AND bookmark_id = ?;"
         params = (params_['tag_id'],params_['bookmark_id'],)
         Connection.sql_commit(self,sql_statement, params)
+
+    # UPDATE
+    def archiveBookmark (self, bookmark_id:int) ->None:
+        sql_statement = "UPDATE Bookmarks SET archived = 'Y' WHERE bookmark_id = ?;"
+        Connection.sql_commit(self, sql_statement, (bookmark_id,))
+        

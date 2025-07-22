@@ -28,7 +28,7 @@ s = SQLStatements()
 
 # TESTING ADDING TAG TO BOOKMARK
 # s.addTagToBookmark ("6","3")
-s.addTagToBookmark ({'bookmark_id': 13,'tag_id':3})
+# s.addTagToBookmark ({'bookmark_id': 13,'tag_id':3})
 
 # TESTING REMOVE BOOKMARK
 # s.removeBookmark(7)
@@ -50,10 +50,10 @@ s.addTagToBookmark ({'bookmark_id': 13,'tag_id':3})
 # print (s.getBookmarkTags(8))
 
 # TESTING GRABBING TITLE
-url = "https://www.scrapethissite.com/"
-url2 = "https://www.reddit.com/r/learnpython/comments/1luyuk/scraping_metadata_with_beautifulsoup/"
-url3 = "https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask"
-url4 = "https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists"
+# url = "https://www.scrapethissite.com/"
+# url2 = "https://www.reddit.com/r/learnpython/comments/1luyuk/scraping_metadata_with_beautifulsoup/"
+# url3 = "https://stackoverflow.com/questions/20001229/how-to-get-posted-json-in-flask"
+# url4 = "https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-lists"
 # scraper = Scraper(url4)
 # scraper2 = Scraper(url2)
 # scraper3 = Scraper(url3)
@@ -62,4 +62,7 @@ url4 = "https://docs.python.org/3/tutorial/controlflow.html#arbitrary-argument-l
 
 # TESTING GRABBING META DESCRIPTION
 # print (scraper.getTitle())
+
+# TESTING ARCHIVING BOOKMARK
+s.archiveBookmark(5)
 

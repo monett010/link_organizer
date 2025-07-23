@@ -106,6 +106,15 @@ def addTag():
         s.addTag(tag_name)
         return "Successfully added tag."
 
+# Adds a tag to a bookmark
+@app.post ("/update/bookmark")
+def addTagToBookmark():
+               b_id = request.get_json()['bookmark_id']
+               tag_id = request.get_json()['tag_id']
+               params = {'bookmark_id':b_id, 'tag_id':tag_id}
+               s.addTagToBookmark(params)
+               return "Successfully added tag to bookmark."
+
 # =======
 # ARCHIVE
 # =======

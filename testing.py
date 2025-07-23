@@ -64,5 +64,7 @@ s = SQLStatements()
 # print (scraper.getTitle())
 
 # TESTING ARCHIVING BOOKMARK
-s.archiveBookmark(5)
+# s.archiveBookmark(5)
 
+# TESTING ADD TAG TO BOOKMARK
+s.addTagToBookmark({'bookmark_id':5, 'tag_id':1})

@@ -51,7 +51,8 @@ class Bookmarks extends Fetch {
         const menu_html = `<nav class='menu' id='menu_${bookmark_id}'>
                             <ul><li><a href=''>Add Tags</a></li>
                             <li><a href=''>Remove Tags</a></li>
-                            <li><a href=''>Archive Bookmark</a></ul></nav>`;
+                            <li><a href=''>Archive Bookmark</a></li>
+                            <li><a href=''>Delete Bookmark</a></li></ul></nav>`;
         node.innerHTML += menu_html;
     }
 

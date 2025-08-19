@@ -51,7 +51,7 @@ class Bookmarks extends Fetch {
         const menu_html = `<nav class='menu' id='menu_${bookmark_id}'>
                             <ul><li><a href=''>Add Tags</a></li>
                             <li><a href=''>Remove Tags</a></li>
-                            <li><a href='http://127.0.0.1:5000/archive/bookmark/${bookmark_id}'>Archive Bookmark</a></li>
+                            <li><a href=''>Archive Bookmark</a></li>
                             <li><a href=''>Delete Bookmark</a></li></ul></nav>`;
         node.innerHTML += menu_html;
     }
@@ -95,6 +95,12 @@ class Bookmarks extends Fetch {
                 }
             });
         }
+    }
+
+    async archiveBookmark (bookmark_id) {
+        const response = await fetch ('http://127.0.0.1:5000/archive/bookmark/' + bookmark_id);
+        const msg = await response.text();
+        return msg;
     }
 
 }

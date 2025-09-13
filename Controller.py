@@ -146,7 +146,8 @@ class SQLStatements (Connection) :
         Connection.sql_commit(self,sql_statement, params)
 
     # UPDATE
-    def archiveBookmark (self, bookmark_id:int) ->None:
-        sql_statement = "UPDATE Bookmarks SET archived = 'Y' WHERE bookmark_id = ?;"
-        Connection.sql_commit(self, sql_statement, (bookmark_id,))
+    def archiveBookmark (self, params_) ->None:
+        sql_statement = "UPDATE Bookmarks SET archived = 'Y', date_archived = ? WHERE bookmark_id = ?;"
+        params = (params_['date_archived'], params_['bookmark_id'],)
+        Connection.sql_commit(self, sql_statement, params)
         

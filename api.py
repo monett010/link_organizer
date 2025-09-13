@@ -120,7 +120,10 @@ def addTagToBookmark():
 # =======
 @app.route ("/archive/bookmark/<id>")
 def archiveBookmark(id):
-        s.archiveBookmark(id)
+        today = date.today()
+        date_archived = today.isoformat()
+        params = {'bookmark_id': id, 'date_archived':date_archived}
+        s.archiveBookmark(params)
         return "Successfully archived bookmark."
 
 if __name__ == "__main__":

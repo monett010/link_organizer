@@ -137,8 +137,8 @@ class Tags extends Fetch {
 
 
         for (let t in tags_) {
-            let url = "index.html?tag=" + t;
-            node.innerHTML += "<a href='" + url + "'>" + tags_[t]['tag_name'] + "</a>";
+            let url_ = "index.html?tag=" + t;
+            node.innerHTML += `<a href='${url_}'>${tags_[t]['tag_name']}</a>`;
         }
     }
 

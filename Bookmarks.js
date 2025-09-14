@@ -1,4 +1,9 @@
 class Fetch {
+
+    constructor () {
+    // sets the base url for all the fetch operations in these classes
+    this.url = "http://127.0.0.1:5000/";
+    }
     async fetchData (endpoint_url){
         const response = await fetch(endpoint_url);
         const json = await response.json();
@@ -12,20 +17,20 @@ class Bookmarks extends Fetch {
         let endpoint_url = "";
         switch (tag) {
             case "all":
-                endpoint_url = "http://127.0.0.1:5000/bookmarks/all/"
+                endpoint_url = this.url + "bookmarks/all/"
                 break;
             case "archived":
-                endpoint_url = "http://127.0.0.1:5000/bookmarks/archived/";
+                endpoint_url = this.url + "bookmarks/archived/";
                 break;
             default:
-                endpoint_url = "http://127.0.0.1:5000/bookmarks/";
+                endpoint_url = this.url + "bookmarks/";
             }
         const bookmarks = await this.fetchData(endpoint_url);
         return bookmarks;
     }
 
     async getBookmarksByTag (tag_id) {
-        const endpoint_url = "http://127.0.0.1:5000/bookmarks?tag_id=" + tag_id
+        const endpoint_url = this.url + "bookmarks?tag_id=" + tag_id
         const bookmarks = await this.fetchData(endpoint_url);
         return bookmarks;
     }
@@ -98,7 +103,7 @@ class Bookmarks extends Fetch {
     }
 
     async archiveBookmark (bookmark_id) {
-        const response = await fetch ('http://127.0.0.1:5000/archive/bookmark/' + bookmark_id);
+        const response = await fetch (this.url + 'archive/bookmark/' + bookmark_id);
         const msg = await response.text();
         return msg;
     }
@@ -109,7 +114,7 @@ class Bookmarks extends Fetch {
 class BookmarkTags extends Bookmarks {
 
     async getBookmarkTags(bookmark_id){
-        const response = await fetch("http://127.0.0.1:5000/bookmarks/" + bookmark_id + "/tags/")
+        const response = await fetch(this.url + "bookmarks/" + bookmark_id + "/tags/")
         const json = await response.json();
         return json;
     }
@@ -127,7 +132,7 @@ class BookmarkTags extends Bookmarks {
 
 class Tags extends Fetch {
     async printTagLinks () {
-        const tags_ = await this.fetchData ("http://127.0.0.1:5000/tags");
+        const tags_ = await this.fetchData (this.url + "tags");
         const node = document.getElementById("tags_menu");
 
 

@@ -51,13 +51,14 @@ class Bookmarks extends Fetch {
         
     }
 
-    writeContextMenu (bookmark_id, bookmark_url) {
+    writeContextMenu (bookmark_id) {
         const node = document.getElementById(bookmark_id);
         const menu_html = `<nav class='menu' id='menu_${bookmark_id}'>
-                            <ul><li><a href=''>Add Tags</a></li>
-                            <li><a href=''>Remove Tags</a></li>
-                            <li><a href=''>Archive Bookmark</a></li>
-                            <li><a href=''>Delete Bookmark</a></li></ul></nav>`;
+                    <ul><li><button class='context_menu_btn' aria-label='add_tags'>Add Tags</button></li>
+                    <li><button class='context_menu_btn' aria-label='remove_tags'>Remove Tags</button></li>
+                    <li><button class='context_menu_btn-archive' id='archive_${bookmark_id}' aria-label='archive_bookmark'>Archive Bookmark</button></li>
+                    <li><button class='context_menu_btn' aria-label='delete_bookmark'>Delete Bookmark</button></li>
+                    </ul></nav>`;
         node.innerHTML += menu_html;
     }
 
@@ -106,6 +107,19 @@ class Bookmarks extends Fetch {
         const response = await fetch (this.url + 'archive/bookmark/' + bookmark_id);
         const msg = await response.text();
         return msg;
+    }
+
+    addEventListenerstoArchiveBtns () {
+        let btns = document.getElementsByClassName ("context_menu_btn-archive");
+
+        for (let b=0; b < btns.length; b++) {
+            let btn_id = btns[b].id;
+            let bookmark_id = btn_id.split("_")[1];
+            btns[b].addEventListener("click", (e)=> {
+                this.archiveBookmark(bookmark_id);
+                window.location.reload();
+            })
+        }
     }
 
 }
